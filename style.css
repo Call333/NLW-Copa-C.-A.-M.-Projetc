@@ -1,3 +1,24 @@
+:root {
+    --card-title-border-color: #746615;
+    --card-color-primary: #F7DD43;
+    --card-bg-color: #1d1c19;
+    --bg: url(./assets/bg-yellow.svg);
+}
+
+body.blue {
+    --card-title-border-color: #338AF3;
+    --card-color-primary: #338AF3;
+    --card-bg-color: #202024;
+    --bg: url(./assets/bg-blue.svg);
+}
+
+body.green {
+    --card-title-border-color: #047C3F;
+    --card-color-primary: #047C3F;
+    --card-bg-color: #1a1f1b;
+    --bg: url(./assets/bg-green.svg);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +31,10 @@ ul {
 
 body {
     background-color: #121214;
-    background-image: url("./assets/background.svg");
-    background-position-y: -715px;
-    background-position-x: center;
+    background-image: var(--bg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
 }
 
 .app {
@@ -28,8 +50,8 @@ body {
 .card {
     padding: 32px 23px;
     text-align: center;
-    background: #1D1C19;
-    border-bottom: 2px solid #F7DD43;
+    background: var(--card-bg-color);
+    border-bottom: 2px solid var(--card-color-primary);
     border-radius: 6px;
     
 }
@@ -46,7 +68,7 @@ body * {
 
 .card h2 {
     display: flex;
-    border: 1px solid #746615;
+    border: 1px solid var(--card-title-border-color);
     padding: 32px 23px;
     text-align: center;
     padding: 8px 16px;
@@ -92,4 +114,40 @@ body * {
     font-size: 36px;
     line-height: 125%;
     color: #E1E1E6;
+}
+ /*agrupando*/
+.card h2:hover,
+.card ul li strong:hover , 
+.card ul li img:hover {
+    transform: scale(1.1);
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img {
+    transition: transform 0.3s;
+}
+
+.card {
+    opacity: 0;
+    animation: appear .1s forwards; /*Mantem os atributos da @keyframes appear*/
+}
+
+/*atrule @*/
+@keyframes appear  {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media ( min-width: 700px ) {
+    .cards {
+        max-width: 670px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
