@@ -130,7 +130,7 @@ body * {
 
 .card {
     opacity: 0;
-    animation: appear .2s forwards; /*Mantem os atributos da @keyframes appear*/
+    animation: appear 0.3s forwards; /*Mantem os atributos da @keyframes appear*/
 }
 
 /*atrule @*/
