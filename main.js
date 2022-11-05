@@ -1,9 +1,9 @@
 function createGame(player1, hours, player2) {
   return `
     <li>
-        <img src="./assets/${player1}.svg" alt="brazil">
+        <img src="./assets/${player1}.svg" alt="${player1}">
         <strong>${hours}</strong>
-        <img src="./assets/${player2}.svg" alt="serbiaf">
+        <img src="./assets/${player2}.svg" alt="${player2}">
     </li>
     `;
 }
@@ -22,15 +22,25 @@ function createCard(date, day, games) {
     `
 }
 // template literals
-
+// createGame("", "", "")
 document.querySelector(".cards").innerHTML =
   createCard(
     "24/11",
     "Quinta",
     createGame("brazil", "16:00", "serbia") +
-      createGame("southkorea", "10:00", "uruguay") +
-      createGame("switzerland", "07:00", "cameroon") +
-      createGame("portugal", "13:00", "enough")
+    createGame("southkorea", "10:00", "uruguay") +
+    createGame("switzerland", "07:00", "cameroon") +
+    createGame("portugal", "13:00", "enough")
   ) +
-  createCard("28/11", "Segunda", createGame("brazil", "13:00", "switzerland")) +
-  createCard("02/12", "Sexta", createGame("brazil", "16:00", "cameroon"));
+  createCard("28/11", "Segunda", 
+    createGame("brazil", "13:00", "switzerland") +
+    createGame("southkorea", "10:00", "ghana") +
+    createGame("cameroon", "07:00", "serbia") +
+    createGame("portugal", "16:00", "uruguay")
+  ) +
+  createCard("02/12", "Sexta", 
+    createGame("brazil", "16:00", "cameroon") +
+    createGame("serbia", "16:00", "switzerland") +
+    createGame("ghana", "12:00", "uruguay") +
+    createGame("southkorea", "12:00", "portugal")
+  );
